@@ -153,12 +153,11 @@ are motivated by these ideas.
 
 The fundamental reason why it is so difficult to build a consistent quantum theory of
 gravity, is that the theory of general relativity and the theory of quantum mechanics
-are logically incompatible in their core assumptions. In general relativity the main object
-of study is a (pseudo-)Riemannian manifold. This makes general relativity a local field theory.
-Quantum mechanics on the other hand, is intrinsically non-local. The non-locality comes from
-the fact that in quantum mechanics, a superposition of states is a valid state, and as a result
-one can build entangled states of two particles that are arbitrarily far apart. This entanglement
-of states directly leads to a paradox known as the black hole information paradox, which we will
+are logically incompatible in their core assumptions. The core assumption of general relativity
+is the equivalence principle, the mathematical formulation of which is that spacetime
+is a Riemann manifold. On the other hand, in quantum mechanics states are described
+as vectors in a Hilbert space evolving via unitary operators. The incompatibilities of these
+assumptions are best shown in what is known as the black hole information paradox, which we will
 now explain.
 
 The black hole information paradox follows from a famous result from Hawking \cite{PhysRevD.14.2460},
@@ -171,7 +170,7 @@ T_{\rm H} = \frac{1}{8\pi M}
 in Planck units ($c=\hbar = G = k_{\rm B} = 1$). This radiation has a thermal (black body)
 spectrum, and it takes energy away from the black hole, which implies that black holes
 evaporate and will eventually disappear\footnote{We assume that after evaporation, there is nothing left for the black hole
-and spacetime is back to normal (locally) Minkowski spacetime without any singularity.
+and spacetime is back to normal, ie.~locally Minkowski spacetime without any singularity.
 A different resolution to the information paradox instead proposes that a Planck-scale
 remnant is left over as a result of black hole evaporation, which carries the information that has
 been captured by the event horizon. Although an interesting, if not somewhat problematic idea
@@ -180,16 +179,17 @@ absence of any Planck-scale remnant.}. This may not seem problematic by itself, 
 that follows directly from semi-classical physics near the horizon, without invoking any
 Planck-scale assumptions. However, the fact that the radiations have a thermal spectrum
 violates quantum mechanics in the most profound way: imagine a collection of particles
-in a pure quantum state that forms a black hole, which then evaporates into a thermal
-state. This is therefore a scattering process which turns
+in a pure quantum state that forms a black hole, which then evaporates into a collection
+of thermal particles. This is therefore a scattering process which turns
 a pure state into a thermal density matrix, so it cannot be unitary in general. As unitarity
 is equivalent to information conservation, we therefore have a paradox where any process
 that involves black holes as intermediate states have information loss.
 
-The core geometric property of black holes that directly leads to the information paradox,
-is that once information has crossed the event horizon, it will never be able to get out,
-at least not until the black hole has completely evaporated. An idea is therefore
-to propose that the Hawking radiations from the horizon are not completely thermal,
+The core geometric property of black holes that led to the information paradox,
+is that classically, once information has crossed the event horizon, it will never be
+able to get out. An idea known as black hole complementarity \cite{PhysRevD.48.3743}
+is therefore to propose that in the full quantum theory of gravity,
+the Hawking radiations from the horizon are not completely thermal,
 but instead carry subtle deviations that encode the incoming state. In other words, the
 event horizon, or more correctly the ``stretched horizon'' that is one Planck length outside
 the event horizon, scrambles the incoming information and ``reflects'' them via subtle
@@ -199,12 +199,12 @@ the equivalence principle implies that the free-falling observer sees nothing sp
 about the event horizon, certainly nothing so dramatic that destroys the information.
 At the same time though, the information is being reflected by the stretched horizon,
 so one would be able to see two copies of the same quantum state by first collecting
-the Hawking radiations and then jump into the event horizon. This is a direct violation
+the Hawking radiations and then jump into the event horizon to catch the original
+carrier of the information. This is a direct violation
 of the quantum no-cloning theorem \cite{nielsen2001quantum}, which itself follows from
 linearity and unitarity of quantum mechanics.
 
-There is a clever way out of this, and the idea is now known as the complementarity
-principle of black holes \cite{PhysRevD.48.3743}. This idea draws from the lesson we
+There is a clever way out of this, and it draws from the lesson we
 have learned from both relativity and quantum mechanics, which is that descriptions
 of physics should depend on the observer. It is indeed true that information seems to
 appear in two different places, but no single observer can observe them simultaneously.
@@ -215,6 +215,44 @@ would not have enough time once he jumps into the event horizon, because the ori
 carrier would have died at the singularity.
 
 This is explained in detail in Ref.~\cite{Sekino:2008he}, but the upshot is that
+the stretched horizon must be able to hide information longer than the so-called
+scrambling time-scale $t_\star$, otherwise the quantum no-cloning theorem is violated.
+For a Schwarzschild black hole of mass $M$, this is
+\[
+t_\star = \beta \log S
+\]
+Here $\beta$ is the inverse Hawking temperature $\beta = 1/T_{\rm H} = 8\pi M$, and
+$S$ is the Bekenstein-Hawking entropy. We are therefore led to the task of finding
+quantum systems that exhibit this scrambling time-scale, and for several types of
+quantum systems, from Brownian quantum circuits \cite{Lashkari:2011yi} to a sparse
+random graphs \cite{Lashkari:2011yi, Bentsen:2018uph}, we do observe at least in a
+certain sense a scrambling time that is logarithmic in their system size. This has
+subsequently led Ref.~\cite{PhysRevLett.115.131603} to study quantum scrambling in
+the generic setting of a 2D conformal field theory at finite temperature, and
+conclude that if the intermediate channel were dominated by the Virasoro identity
+block, then the out-of-time-order correlators would exhibit a time-scale $t_\star$
+that is logarithmic in the central charge $c$:
+\[
+t_\star = \frac{\beta}{2\pi}\log\frac{c}{h_{w}}
+\]
+Here $\beta$ is the inverse temperature the $h_w$ is the conformal weight of
+an operator $W$.
+
+Chapter \ref{chap:chaos} of this thesis is therefore dedicated to a more careful
+study of this scrambling time-scale in 2D conformal field theories. We will find that
+subject to certain caveats, our results concur with Ref.~\cite{PhysRevLett.115.131603},
+but only if the intermediate channels are dominated by the Virasoro identity block.
+However, for many conformal field theories this is not true. We find that
+even a sparse spectrum of intermediate states can dominate the out-or-time-order
+correlators, and therefore spoil or at least dramatically modify the onset of
+quantum chaos. This has important implications which we will discuss in detail in
+Chapter \ref{chap:chaos}, but one of the biggest impact is that the decoupling
+theorem is no longer true for the gravity dual of the boundary CFT, and one can
+no longer use effective field theory to describe bulk physics.
+
+Armed with the insights about quantum scrambling on the black hole horizon, it is interesting to see if we can apply the same understanding to cosmological horizons, since they share the same mathematical formulation classically. In particular, it would be interesting to build a microscopic theory of the cosmological horizon that enables the thermodynamic interpretation of the de-Sitter entropy as the logarithm of the number of quantum microstates encoded by the stretched horizon. We would expect the stretched horizon of the de-Sitter spacetime to share the same feature of the stretched horizon of black holes, in the sense that for an observer in the static patch the stretched horizon scrambles information and reflects them via Hawking radiations with the de-Sitter temperature. In Chapter \ref{chap:map} we will attempt to build such a theory, where we model the de-Sitter horizon as a large-$N$ quantum spin model with a Hamiltonian consisting of a ``local'' piece, which reproduces the semi-classical local bulk physics, and a ``non-local'' piece which generates the scrambling dynamics. This is a holographic theory in the sense that we have constructed a map between semi-classical gravity in a bulk spacetime (in our case the static patch of the de-Sitter spacetime) and a unitary quantum mechanical model its boundary (the stretched horizon).
+
+A key piece in our holographic map on the cosmological horizon is the ability to write bulk modes as spin waves living on the boundary spin model. This requires that we solve for the wavefunctions of scalar fields living on the bulk. In a similar vein, in Chapter \ref{chap:flatspace} we will discuss how one can construct wavefunctions of massive scalar fields that transform as a unitary principal series representation of the $\rm SO(3,1)$ group. This is motivated by recent work in constructing holographic theories between flat 4D Minkowski spacetime and its 2D boundary, known as the celestial sphere \cite{deBoer:2003vf,Kapec:2014opa,Kapec:2016jld,Cheung:2016iub}. As an application, we will discuss how these unitary principal series wavefunctions can be used to construct a holographic map between gravitons living in 4D Minkowski spacetime and conformal operators living on the celestial sphere. The details will be discussed in Chapter \ref{chap:gravitons}, but the basic idea is to decompose the Weyl scalars built from the graviton modes into the scalar modes in Chapter \ref{chap:flatspace}, and map these into the celestial sphere. Both the scalar holographic map and the graviton holographic map are invertible, in the sense that one can recover the original bulk modes via inverse transforms on the celestial operators. We will discuss both the successes and the shortcomings of our procedure. These include in particular, the fact that this simple holographic map that we have proposed amounts to a kinematic reorganization of the bulk modes, and that it remains unclear whether the addition of dynamical interactions will have any useful description in terms of conformal operators on the celestial sphere.
 
 
 \chapter{Notes on Scrambling in Conformal Field Theory}\label{chap:chaos}
@@ -1482,7 +1520,7 @@ spacetime.
 \section{Introduction}
 
 There has been considerable interest recently in constructing holographic
-theories between flat 4d Minkowski spacetime and a 2d boundary celestial
+theories between flat 4D Minkowski spacetime and a 2D boundary celestial
 sphere conformal field theory \cite{deBoer:2003vf,Kapec:2014opa,Kapec:2016jld,Cheung:2016iub}.
 Central to this mission is the construction of conformally covariant
 wavefunctions that form unitary representations of the ${\rm SO}(d,1)$
